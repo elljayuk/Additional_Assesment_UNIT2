@@ -1,25 +1,32 @@
-def get_name():
-    name = input("Enter your name: ")
-    return name
-def save_name(name):
-    with open("users.txt", "a") as file:
-        file.write(name + "\n")
-def display_menu():
+DATA_FILE = "users.txt"
+def request_user_name():
+    """Ask the user to enter their name."""
+    return input("Enter your name: ").strip()
+def save_user_name(user_name):
+    """Save the user's name to a text file."""
+    with open(DATA_FILE, "a", encoding="utf-8") as user_file:
+        user_file.write(user_name + "\n")
+def display_main_menu():
+    """Display the available menu options."""
     print("\nMain Menu")
     print("1. Display Welcome Message")
     print("2. Save Name")
     print("3. Exit")
-user_name = get_name()
-while True:
-    display_menu()
-    choice = input("Choose an option: ")
-    if choice == "1":
-        print(f"Welcome, {user_name}!")
-    elif choice == "2":
-        save_name(user_name)
-        print("Name now saved!")
-    elif choice == "3":
-        print("Bye Bye :) !")
-        break
-    else:
-        print("Please choose 1, 2 or 3.")
+def run_application():
+    """Run the main app"""
+    user_name = request_user_name()
+    while True:
+        display_main_menu()
+        selected_option = input("Choose an option: ").strip()
+        if selected_option == "1":
+            print(f"Welcome, {user_name}!")
+        elif selected_option == "2":
+            save_user_name(user_name)
+            print("Name saved successfully :)")
+        elif selected_option == "3":
+            print("Bye-bye! :)")
+            break
+        else:
+            print("Please choose 1, 2 or 3.")
+if __name__ == "__main__":
+    run_application()
