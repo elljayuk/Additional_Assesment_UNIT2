@@ -1,5 +1,10 @@
 # AC 2.3 Git version control assessment :)
+
 DATA_FILE = "users.txt"
+def display_test_message():
+    """Display a temporary message for testing."""
+    print("Temporary feature is active.")
+
 def request_user_name():
     """Ask the user to enter their name."""
     return input("Enter your name: ").strip()
@@ -15,6 +20,7 @@ def display_main_menu():
     print("3. Exit")
 def run_application():
     """Run the main app"""
+    display_test_message()
     user_name = request_user_name()
     while True:
         display_main_menu()
