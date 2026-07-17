@@ -1,3 +1,4 @@
+# AC 2.3 Git version control assessment :)
 DATA_FILE = "users.txt"
 def request_user_name():
     """Ask the user to enter their name."""
